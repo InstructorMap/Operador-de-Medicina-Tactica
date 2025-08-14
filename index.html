@@ -4,32 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- SEO - Información para Motores de Búsqueda -->
     <title>Curso Operador de Medicina Táctica Argentina | Formación TECC/TCCC</title>
     <meta name="description" content="Conviértete en Operador de Medicina Táctica. Curso intensivo de 6 meses con doble titulación y aval nacional. Aprende TCCC y TECC con práctica presencial. ¡Inscríbete ya!">
     <meta name="keywords" content="curso medicina táctica, operador de medicina táctica, TCCC, TECC, primer respondiente, control de hemorragias, Argentina, Buenos Aires, curso colbert">
 
+    <!-- Google Fonts: Oswald (para títulos) y Roboto (para cuerpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Estilos CSS -->
     <style>
         :root {
-            --primary-color: #0d2c4b; /* Azul oscuro */
-            --secondary-color: #007BFF; /* Azul brillante para botones */
-            --accent-color: #ffc107; /* Amarillo para acentos */
+            --primary-color: #1a1a1a; /* Negro/Gris muy oscuro */
+            --secondary-color: #2c2c2c; /* Gris oscuro para tarjetas */
+            --accent-color: #005A9C; /* Azul corporativo del flyer */
             --whatsapp-color: #25D366;
-            --text-color: #333;
-            --light-text-color: #f4f4f4;
-            --background-color: #ffffff;
-            --section-bg-color: #f9f9f9;
+            --text-color: #cccccc;
+            --heading-color: #ffffff;
+            --background-color: #121212;
+            --section-bg-color: #1e1e1e;
         }
 
         body {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.7;
             color: var(--text-color);
             background-color: var(--background-color);
         }
 
         .container {
-            max-width: 960px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -37,266 +47,373 @@
         /* --- SECCIÓN HÉROE --- */
         .hero {
             background-color: var(--primary-color);
-            /* Para una imagen de fondo, descomenta la siguiente línea y cambia la URL */
-            /* background-image: linear-gradient(rgba(13, 44, 75, 0.8), rgba(13, 44, 75, 0.8)), url('URL_DE_TU_IMAGEN.jpg'); */
+            /* Imagen del flyer como fondo */
+            background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), url('https://i.ibb.co/6g2xYd4/flyer-tactical-medic.jpg');
             background-size: cover;
             background-position: center;
-            color: var(--light-text-color);
+            background-attachment: fixed;
+            color: var(--heading-color);
             text-align: center;
-            padding: 80px 20px;
+            padding: 120px 20px;
+            border-bottom: 5px solid var(--accent-color);
         }
 
         .hero h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
-            line-height: 1.2;
+            font-family: 'Oswald', sans-serif;
+            font-size: 4em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.8);
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .hero h3 {
-            font-size: 1.4em;
+            font-size: 1.6em;
             font-weight: 400;
             margin-bottom: 30px;
+            color: var(--text-color);
         }
 
         .hero .start-date {
             background-color: var(--accent-color);
-            color: var(--primary-color);
+            color: var(--heading-color);
             display: inline-block;
-            padding: 8px 15px;
+            padding: 10px 20px;
             border-radius: 5px;
-            font-weight: bold;
-            margin-bottom: 30px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         /* --- BOTONES --- */
         .btn {
-            padding: 15px 30px;
+            padding: 15px 35px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
             border-radius: 8px;
             display: inline-block;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin: 5px;
+            text-transform: uppercase;
         }
         
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
         }
         
+        .btn-main {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
         .btn-whatsapp {
             background-color: var(--whatsapp-color);
             color: white;
         }
-
+        
         .btn-secondary {
-            background-color: var(--secondary-color);
+            background-color: transparent;
             color: white;
+            border: 2px solid var(--accent-color);
+        }
+        .btn-secondary:hover {
+             background-color: var(--accent-color);
         }
 
         /* --- SECCIONES GENERALES --- */
         .section {
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
         }
         
-        .section:nth-of-type(odd) {
+        .section:nth-of-type(even) {
             background-color: var(--section-bg-color);
         }
         
         .section h2 {
-            font-size: 2.2em;
-            margin-bottom: 40px;
-            color: var(--primary-color);
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: var(--heading-color);
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 4px;
+            background-color: var(--accent-color);
+            bottom: -15px;
+            left: 15%;
         }
         
         .section p {
-            max-width: 700px;
-            margin: 0 auto 20px auto;
+            max-width: 800px;
+            margin: 0 auto 25px auto;
             font-size: 1.1em;
         }
         
-        /* --- BENEFICIOS --- */
-        .benefits-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        /* --- ESTRUCTURA DE TARJETAS --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-top: 40px;
+            text-align: left;
         }
         
-        .benefit-item {
-            background: white;
-            padding: 20px;
+        .card {
+            background: var(--secondary-color);
+            padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            width: 200px;
-            text-align: center;
+            border-top: 4px solid var(--accent-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
         
-        .benefit-item .icon {
-            font-size: 2.5em;
-            color: var(--secondary-color);
+        .card .icon {
+            font-size: 3em;
+            color: var(--accent-color);
+            margin-bottom: 15px;
         }
         
-        .benefit-item h4 {
-            margin-top: 10px;
-            color: var(--primary-color);
+        .card h4 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: var(--heading-color);
+            font-family: 'Oswald', sans-serif;
         }
         
         /* --- MÓDULOS --- */
         .modules-list {
             text-align: left;
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .module {
-            background-color: #fff;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-left: 5px solid var(--secondary-color);
-            border-radius: 0 5px 5px 0;
+            background-color: var(--secondary-color);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--accent-color);
+            border-radius: 0 8px 8px 0;
+            font-size: 1.1em;
         }
         
         .module strong {
-            color: var(--primary-color);
+            color: var(--heading-color);
         }
 
         /* --- PRECIOS --- */
         .pricing-box {
-            background: linear-gradient(145deg, #eef5ff, #ffffff);
-            border: 2px solid var(--secondary-color);
-            padding: 30px;
+            background: var(--secondary-color);
+            border: 2px solid var(--accent-color);
+            padding: 40px;
             border-radius: 10px;
-            max-width: 500px;
-            margin: 20px auto;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
         
         .pricing-box p {
-            font-size: 1.2em;
-            margin-bottom: 10px;
+            font-size: 1.3em;
+            margin-bottom: 15px;
         }
         
         .discount {
             background-color: var(--accent-color);
-            color: var(--primary-color);
-            font-weight: bold;
-            padding: 10px;
+            color: var(--heading-color);
+            font-weight: 700;
+            padding: 15px;
             border-radius: 5px;
-            margin-top: 20px;
+            margin-top: 25px;
+            font-size: 1.1em;
+        }
+
+        /* --- FORMULARIO DE CONTACTO --- */
+        .contact-form {
+            max-width: 800px;
+            margin: 40px auto 0 auto;
+            text-align: left;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--heading-color);
+            font-weight: 700;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--secondary-color);
+            border: 1px solid #555;
+            border-radius: 5px;
+            color: var(--heading-color);
+            font-size: 1em;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent-color);
         }
 
         /* --- FOOTER --- */
         footer {
             background-color: var(--primary-color);
-            color: var(--light-text-color);
+            color: var(--text-color);
             text-align: center;
-            padding: 20px;
+            padding: 40px 20px;
+            border-top: 3px solid var(--accent-color);
+        }
+        .logos-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .logos-footer img {
+            max-height: 60px;
+            filter: grayscale(100%) brightness(200%); /* Logos en blanco para el tema oscuro */
+        }
+
+
+        /* --- BOTÓN FLOTANTE DE WHATSAPP --- */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--whatsapp-color);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
         }
         
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2em; }
-            .hero h3 { font-size: 1.2em; }
-            .section h2 { font-size: 1.8em; }
-            .benefits-grid { flex-direction: column; align-items: center; }
+            .hero h1 { font-size: 2.8em; }
+            .hero h3 { font-size: 1.3em; }
+            .section h2 { font-size: 2.2em; }
+            .grid { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
+    <!-- ======== BOTÓN FLOTANTE DE WHATSAPP ======== -->
+    <a href="https://w.app/ahkrr0" class="floating-whatsapp" target="_blank" aria-label="Contactar Asesor por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ======== SECCIÓN HÉROE ======== -->
     <header class="hero">
-        <h1>Curso Operador de Medicina Táctica</h1>
-        <h3>Conviértete en el Eslabón Crucial que Salva Vidas</h3>
-        <p>Formación Intensiva de 6 Meses. Doble Titulación. Aval Nacional.</p>
-        <p>Domina los protocolos internacionales <strong>TCCC y TECC</strong> para actuar con certeza en situaciones de alto riesgo. Cuando otros dudan, tú tendrás las habilidades para intervenir.</p>
+        <h1>Operador de Medicina Táctica</h1>
+        <h3>Conviértete en el Eslabón Crucial que Salva Vidas en Situaciones Críticas</h3>
+        <p>Formación Intensiva de 6 Meses | Doble Titulación | Aval Nacional</p>
         <div class="start-date">INICIO DE CLASES: LUNES 2 DE SEPTIEMBRE</div>
-        <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" class="btn btn-whatsapp">¡QUIERO INSCRIBIRME POR WHATSAPP!</a>
+        <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" class="btn btn-main">¡Quiero Inscribirme!</a>
+        <a href="URL_AL_PDF_DEL_PROGRAMA" class="btn btn-secondary">Descargar Programa</a>
     </header>
 
     <main>
 
+        <!-- ======== SECCIÓN PROBLEMA/OPORTUNIDAD ======== -->
         <section class="section">
             <div class="container">
-                <h2>Entre el Caos y la Calma, Hay un Héroe Preparado. ¿Serás Tú?</h2>
-                <p>En un accidente, un acto de violencia civil o un desastre, los primeros minutos son decisivos. La ayuda convencional puede tardar en llegar. La diferencia entre la vida y la muerte depende de quien esté preparado para dar un paso al frente con el conocimiento correcto.</p>
-                <p>Los primeros auxilios básicos no son suficientes cuando el entorno es hostil. Necesitas una mentalidad y unas habilidades diferentes. Necesitas <strong>entrenamiento táctico</strong>.</p>
+                <h2>Cuando Cada Segundo Cuenta, la Preparación lo es Todo</h2>
+                <p>En un entorno de alto riesgo, la ayuda convencional no siempre llega a tiempo. La diferencia entre la vida y la muerte depende de una respuesta inmediata, precisa y entrenada. Los primeros auxilios básicos son insuficientes ante amenazas complejas.</p>
+                <p>Se necesita una mentalidad táctica y habilidades especializadas. <strong>Se necesita un Operador de Medicina Táctica.</strong></p>
             </div>
         </section>
         
+        <!-- ======== SECCIÓN PARA QUIÉN ES ======== -->
         <section class="section">
             <div class="container">
-                <h2>Presentamos el Curso Definitivo: Operador de Medicina Táctica 2025</h2>
-                <p>Este no es un simple curso. Es una formación integral de 6 meses diseñada para forjar operadores capaces de brindar atención médica de emergencia bajo presión. Con el aval de la <strong>Asociación Argentina para la Salud (PJ 116)</strong> y la <strong>Fundación Universitaria Colbert</strong>, te ofrecemos un programa único que combina la teoría online con la práctica presencial intensiva.</p>
-                <a href="URL_AL_PDF_DEL_PROGRAMA" class="btn btn-secondary">DESCARGAR PROGRAMA COMPLETO (PDF)</a>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <h2>Una Formación Esencial Para...</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <div class="icon">🛡️</div>
+                <h2>Una Formación Esencial Para Quienes Dan un Paso al Frente</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
                         <h4>Fuerzas de Seguridad</h4>
+                        <p>Policía, Gendarmería, Prefectura y FF.AA. que buscan especializar sus capacidades médicas en el terreno.</p>
                     </div>
-                    <div class="benefit-item">
-                        <div class="icon">⚕️</div>
+                    <div class="card">
+                        <div class="icon"><i class="fa-solid fa-star-of-life"></i></div>
                         <h4>Profesionales de Emergencias</h4>
+                        <p>Médicos, enfermeros, paramédicos, TAPs y bomberos que operan en entornos no convencionales.</p>
                     </div>
-                    <div class="benefit-item">
-                        <div class="icon">🕶️</div>
+                    <div class="card">
+                        <div class="icon"><i class="fa-solid fa-user-secret"></i></div>
                         <h4>Seguridad Privada</h4>
+                        <p>Custodios VIP, personal de seguridad en eventos y operadores que requieren un nivel superior de respuesta.</p>
                     </div>
-                    <div class="benefit-item">
-                        <div class="icon"> civilians prepared citizens who seek the highest level of training to protect their loved ones and their community.">➕</div>
+                    <div class="card">
+                        <div class="icon"><i class="fa-solid fa-users"></i></div>
                         <h4>Civiles Preparados</h4>
+                        <p>Ciudadanos responsables que buscan el más alto nivel de capacitación para proteger a su comunidad.</p>
                     </div>
+                </div>
+                <div style="margin-top: 50px;">
+                    <p>¿Tienes dudas si este curso es para ti?</p>
+                    <a href="https://w.app/ahkrr0" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Contactar un Asesor</a>
                 </div>
             </div>
         </section>
 
+        <!-- ======== SECCIÓN MÓDULOS ======== -->
         <section class="section">
             <div class="container">
-                <h2>Tu Camino de Transformación: Un Vistazo a Nuestro Programa</h2>
+                <h2>Plan de Estudios: De los Fundamentos a la Maestría Táctica</h2>
                 <div class="modules-list">
-                    <div class="module"><strong>Módulo 1: Bases de la Medicina Táctica.</strong> Comprende la evolución y los principios del TCCC.</div>
-                    <div class="module"><strong>Módulo 2: Bioseguridad y Equipamiento.</strong> Domina tu equipo y aprende a protegerte en entornos contaminados.</div>
-                    <div class="module"><strong>Módulo 3 & 4: Abordaje y Protocolo XABCDE.</strong> El corazón del curso. Aprende a detener hemorragias y a manejar la vía aérea, respiración, circulación y exposición.</div>
-                    <div class="module"><strong>Módulo 5 & 7: Atención y Manejo del Politraumatizado.</strong> Aplica tus conocimientos en escenarios tácticos, movilizando y extrayendo heridos de forma segura.</div>
-                    <div class="module"><strong>Módulo 6: Soporte Vital Básico y Avanzado (SVB/SVA).</strong> Adquiere las competencias para mantener a un paciente con vida.</div>
-                    <div class="module"><strong>Módulo 8: Simulación Práctica Intensiva.</strong> ¡El momento de la verdad! Aplica todo lo aprendido en un simulacro presencial.</div>
-                    <div class="module"><strong>Módulo 9: Aspectos Psicológicos.</strong> Fórmate en resiliencia, manejo del estrés y apoyo emocional.</div>
+                    <div class="module"><strong>Módulo 1-2: Fundamentos y Equipamiento.</strong> Principios del TCCC, bioseguridad y dominio de tu kit táctico.</div>
+                    <div class="module"><strong>Módulo 3-4: Protocolo XABCDE.</strong> El núcleo del curso. Control de hemorragias exanguinantes y manejo avanzado de la vía aérea, respiración y circulación.</div>
+                    <div class="module"><strong>Módulo 5-7: Politrauma y Extracción.</strong> Manejo del paciente politraumatizado, inmovilización y técnicas de evacuación en entornos hostiles.</div>
+                    <div class="module"><strong>Módulo 6: Soporte Vital (SVB/SVA).</strong> Competencias avanzadas para mantener la vida hasta la atención definitiva.</div>
+                    <div class="module"><strong>Módulo 8: Simulación Práctica Intensiva.</strong> El momento de la verdad. Aplica todo lo aprendido en un teatro de operaciones real.</div>
+                    <div class="module"><strong>Módulo 9: Psicología de Combate.</strong> Desarrolla resiliencia, manejo del estrés y apoyo emocional.</div>
                 </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                 <h2>¿Por Qué Elegir Nuestra Formación?</h2>
-                 <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <div class="icon">🎓</div>
-                        <h4>Doble Titulación Privada</h4>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="icon">👨‍🚒</div>
-                        <h4>Práctica Presencial</h4>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="icon">✅</div>
-                        <h4>Aval Académico</h4>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="icon">🧰</div>
-                        <h4>Bolsa de Trabajo</h4>
-                    </div>
+                 <div style="margin-top: 50px;">
+                    <p>¿Quieres saber más sobre el contenido?</p>
+                    <a href="https://w.app/ahkrr0" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Hablar con un Asesor</a>
                 </div>
             </div>
         </section>
         
+        <!-- ======== SECCIÓN COSTOS E INSCRIPCIÓN ======== -->
         <section class="section">
             <div class="container">
                 <h2>Invierte en Habilidades que Salvan Vidas. Tu Momento es Ahora.</h2>
@@ -308,17 +425,65 @@
                         Abona el curso completo en un solo pago y obtén un <strong>20% de descuento</strong>.
                     </div>
                 </div>
-                <p><strong>¡LOS CUPOS SON LIMITADOS! No te quedes afuera.</strong></p>
-                <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" class="btn btn-whatsapp">RESERVAR MI LUGAR AHORA</a>
+                <p><strong>LOS CUPOS SON LIMITADOS.</strong> Asegura tu lugar en la vanguardia de la respuesta táctica.</p>
+                <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" class="btn btn-main">Reservar mi Lugar Ahora</a>
+            </div>
+        </section>
+
+        <!-- ======== NUEVA SECCIÓN DE FORMULARIO ======== -->
+        <section class="section">
+            <div class="container">
+                <h2>Solicita Más Información</h2>
+                <p>Completa el formulario y un asesor se pondrá en contacto contigo a la brevedad para resolver todas tus dudas.</p>
+                <!-- IMPORTANTE: REEMPLAZA CON TU LINK DE FORMSPREE -->
+                <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST" class="contact-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Nombre y Apellido</label>
+                            <input type="text" id="name" name="nombre_completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dni">DNI</label>
+                            <input type="text" id="dni" name="dni" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="localidad">Localidad</label>
+                            <input type="text" id="localidad" name="localidad" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="provincia">Provincia</label>
+                            <input type="text" id="provincia" name="provincia" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="telefono" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <!-- Campo oculto para saber de qué curso piden info -->
+                        <input type="hidden" name="curso_elegido" value="Operador de Medicina Táctica">
+                        <div class="form-group full-width">
+                            <button type="submit" class="btn btn-main" style="width: 100%;">Enviar Consulta</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </section>
 
     </main>
 
+    <!-- ======== FOOTER ======== -->
     <footer>
         <div class="container">
+            <div class="logos-footer">
+                <!-- NOTA: Reemplaza los src con las URLs directas a tus logos -->
+                <img src="https://i.ibb.co/pzp4s26/aaps-logo-white.png" alt="Logo AAPS - Asociación Argentina para la Salud">
+                <img src="https://i.ibb.co/bB4b5M4/colbert-logo-white.png" alt="Logo Instituto Colbert">
+            </div>
             <p>&copy; 2025 Instituto Colbert & Asociación Argentina para la Salud. Todos los derechos reservados.</p>
-            <p>Formación de Operadores en Medicina Táctica.</p>
+            <p>Formación de Operadores en Medicina Táctica. Liderando la capacitación en respuesta a emergencias de alto riesgo.</p>
         </div>
     </footer>
 
