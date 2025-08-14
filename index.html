@@ -47,7 +47,7 @@
         /* --- SECCIÓN HÉROE --- */
         .hero {
             background-color: var(--primary-color);
-            /* Imagen del flyer como fondo */
+            /* Imagen de portada.jpeg */
             background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), url('https://i.ibb.co/6g2xYd4/flyer-tactical-medic.jpg');
             background-size: cover;
             background-position: center;
@@ -127,14 +127,30 @@
 
         /* --- SECCIONES GENERALES --- */
         .section {
-            padding: 80px 0;
+            padding: 80px 20px;
             text-align: center;
+            position: relative;
         }
         
         .section:nth-of-type(even) {
             background-color: var(--section-bg-color);
         }
         
+        /* --- NUEVOS FONDOS DE IMAGEN PARA SECCIONES --- */
+        .section-bg-1 {
+            background-image: linear-gradient(rgba(26, 26, 26, 0.88), rgba(26, 26, 26, 0.88)), url('https://i.ibb.co/8mN60Jd/medtac1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .section-bg-2 {
+            background-image: linear-gradient(rgba(26, 26, 26, 0.88), rgba(26, 26, 26, 0.88)), url('https://i.ibb.co/T1wVqYj/medtac2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
         .section h2 {
             font-family: 'Oswald', sans-serif;
             font-size: 2.8em;
@@ -330,6 +346,7 @@
             .section h2 { font-size: 2.2em; }
             .grid { grid-template-columns: 1fr; }
             .form-grid { grid-template-columns: 1fr; }
+            .hero, .section-bg-1, .section-bg-2 { background-attachment: scroll; } /* Desactiva parallax en móvil para mejor rendimiento */
         }
     </style>
 </head>
@@ -342,12 +359,14 @@
 
     <!-- ======== SECCIÓN HÉROE ======== -->
     <header class="hero">
-        <h1>Operador de Medicina Táctica</h1>
-        <h3>Conviértete en el Eslabón Crucial que Salva Vidas en Situaciones Críticas</h3>
-        <p>Formación Intensiva de 6 Meses | Doble Titulación | Aval Nacional</p>
-        <div class="start-date">INICIO DE CLASES: LUNES 2 DE SEPTIEMBRE</div>
-        <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" class="btn btn-main">¡Quiero Inscribirme!</a>
-        <a href="URL_AL_PDF_DEL_PROGRAMA" class="btn btn-secondary">Descargar Programa</a>
+        <div class="container">
+            <h1>Operador de Medicina Táctica</h1>
+            <h3>Conviértete en el Eslabón Crucial que Salva Vidas en Situaciones Críticas</h3>
+            <p>Formación Intensiva de 6 Meses | Doble Titulación | Aval Nacional</p>
+            <div class="start-date">INICIO DE CLASES: LUNES 2 DE SEPTIEMBRE</div>
+            <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" class="btn btn-main">¡Quiero Inscribirme!</a>
+            <a href="URL_AL_PDF_DEL_PROGRAMA" class="btn btn-secondary">Descargar Programa</a>
+        </div>
     </header>
 
     <main>
@@ -361,8 +380,8 @@
             </div>
         </section>
         
-        <!-- ======== SECCIÓN PARA QUIÉN ES ======== -->
-        <section class="section">
+        <!-- ======== SECCIÓN PARA QUIÉN ES (CON IMAGEN DE FONDO) ======== -->
+        <section class="section section-bg-1">
             <div class="container">
                 <h2>Una Formación Esencial Para Quienes Dan un Paso al Frente</h2>
                 <div class="grid">
@@ -394,8 +413,8 @@
             </div>
         </section>
 
-        <!-- ======== SECCIÓN MÓDULOS ======== -->
-        <section class="section">
+        <!-- ======== SECCIÓN MÓDULOS (CON IMAGEN DE FONDO) ======== -->
+        <section class="section section-bg-2">
             <div class="container">
                 <h2>Plan de Estudios: De los Fundamentos a la Maestría Táctica</h2>
                 <div class="modules-list">
@@ -430,13 +449,13 @@
             </div>
         </section>
 
-        <!-- ======== NUEVA SECCIÓN DE FORMULARIO ======== -->
+        <!-- ======== SECCIÓN DE FORMULARIO ======== -->
         <section class="section">
             <div class="container">
                 <h2>Solicita Más Información</h2>
                 <p>Completa el formulario y un asesor se pondrá en contacto contigo a la brevedad para resolver todas tus dudas.</p>
                 <!-- IMPORTANTE: REEMPLAZA CON TU LINK DE FORMSPREE -->
-                <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST" class="contact-form">
+                <form action="https://formspree.io/f/xldlvlag" method="POST" class="contact-form">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="name">Nombre y Apellido</label>
