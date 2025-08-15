@@ -33,9 +33,14 @@
             to { opacity: 1; transform: translateY(0); }
         }
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 90, 156, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(0, 90, 156, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 90, 156, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(255, 193, 7, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
+        }
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px var(--bonus-color); }
+            50% { box-shadow: 0 0 20px var(--bonus-color), 0 0 30px var(--bonus-color); }
+            100% { box-shadow: 0 0 5px var(--bonus-color); }
         }
 
         body {
@@ -132,6 +137,15 @@
         .btn-whatsapp:hover { background-color: #1e8e3e; }
         .btn-secondary { background-color: transparent; color: white; border: 2px solid var(--accent-color); }
         .btn-secondary:hover { background-color: var(--accent-color); }
+        .btn-bonus {
+            background-color: var(--bonus-color);
+            color: #1a1a1a;
+            font-size: 1.3em !important;
+            padding: 20px 40px !important;
+        }
+        .btn-bonus:hover {
+            background-color: #ffdb58;
+        }
         .pulsing-btn { animation: pulse 2.5s infinite; }
 
         /* --- SECCIONES GENERALES --- */
@@ -198,7 +212,7 @@
             width: 200px;
             height: 200px;
             object-fit: cover;
-            border-radius: 50%; /* MEJORA: Marco circular */
+            border-radius: 50%;
             border: 4px solid var(--accent-color);
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             margin: 0 auto;
@@ -207,35 +221,50 @@
         .instructor-info h4 { color: var(--heading-color); font-family: 'Oswald'; font-size: 1.5em; margin: 0 0 5px 0; }
         .instructor-info .title { color: var(--accent-color); font-weight: 700; }
         .instructor-info p { font-size: 0.9em; margin-top: 10px; }
-        
-        /* --- GALERÍA DE PRÁCTICAS --- */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-top: 40px;
+        .social-links a { color: var(--text-color); margin: 0 10px; font-size: 1.5em; transition: color 0.3s; }
+        .social-links a:hover { color: var(--accent-color); }
+
+        /* --- SECCIÓN DE CERTIFICACIÓN --- */
+        .certification-item {
+            position: relative;
+            display: inline-block;
+            margin: 10px;
         }
-        .gallery-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+        .certification-item img {
+            max-width: 100%;
+            height: auto;
             border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            filter: blur(4px); /* MEJORA: Difuminado */
         }
-        .gallery-item img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        .certification-item::after {
+            content: 'MODELO DE CERTIFICACIÓN';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
         }
-        .video-container {
-            margin-top: 40px;
+
+        /* --- TESTIMONIOS --- */
+        .testimonial-card {
+            background: var(--secondary-color);
+            padding: 30px;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            max-width: 700px;
+            margin: 20px auto;
+            border-left: 5px solid var(--accent-color);
+            text-align: left;
         }
-        .video-container video {
-            width: 100%;
-            display: block;
-        }
+        .testimonial-card .author-info { display: flex; align-items: center; gap: 15px; margin-top: 20px; }
+        .testimonial-card .author-info img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+        .testimonial-card .author { font-weight: 700; color: var(--heading-color); }
+        .testimonial-card .author span { display: block; font-weight: 400; font-size: 0.9em; color: var(--text-color); }
 
         /* --- CUENTA REGRESIVA Y BONUS --- */
         #countdown {
@@ -257,17 +286,81 @@
             max-width: 700px;
             margin: 40px auto;
             font-weight: 700;
+            animation: glow 3s infinite;
         }
 
         /* --- MÉTODOS DE PAGO --- */
-        .payment-methods { margin-top: 20px; }
-        .payment-methods i { font-size: 2.5em; margin: 0 10px; color: #fff; }
+        .pricing-box {
+            background: var(--secondary-color);
+            border: 2px solid var(--accent-color);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .original-price {
+            text-decoration: line-through;
+            opacity: 0.7;
+            font-size: 1.2em;
+        }
+        .payment-methods { 
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .payment-methods p {
+            margin: 0;
+            color: black;
+            font-weight: 700;
+        }
+        .payment-methods i { 
+            font-size: 2.5em; 
+            color: #2c2c2c;
+        }
+        .payment-methods img {
+            height: 40px; 
+            vertical-align: middle;
+        }
+
+        /* --- FORMULARIO DE CONTACTO --- */
+        .contact-form { max-width: 800px; margin: 40px auto 0 auto; text-align: left; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group.full-width { grid-column: 1 / -1; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--heading-color); font-weight: 700; }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--secondary-color);
+            border: 1px solid #555;
+            border-radius: 5px;
+            color: var(--heading-color);
+            font-size: 1em;
+            font-family: 'Roboto', sans-serif;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
 
         /* --- FOOTER --- */
         footer { background-color: var(--primary-color); color: var(--text-color); text-align: center; padding: 40px 20px; border-top: 3px solid var(--accent-color); }
         .logos-footer { display: flex; justify-content: center; align-items: center; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
         .logo-container {
-            background-color: white; /* MEJORA: Fondo blanco para logos */
+            background-color: white;
             padding: 10px;
             border-radius: 8px;
             display: flex;
@@ -310,6 +403,7 @@
             .section h2 { font-size: 2.2em; }
             .grid { grid-template-columns: 1fr; }
             .hero, .section-bg-1, .section-bg-2 { background-attachment: scroll; }
+            .form-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -336,36 +430,13 @@
             <p>Formación Intensiva de 6 Meses | Doble Titulación | Aval Nacional</p>
             <div id="countdown"></div>
             <div>
-                <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" class="btn btn-main pulsing-btn"><i class="fa-solid fa-rocket"></i> ¡Inscríbete Ahora!</a>
-                <a href="URL_AL_PDF_DEL_PROGRAMA" class="btn btn-secondary"><i class="fa-solid fa-file-arrow-down"></i> Descargar Programa</a>
+                <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" class="btn btn-main"><i class="fa-solid fa-rocket"></i> ¡Inscríbete Ahora!</a>
+                <a href="2025 OPERADOR DE MEDICINA TACTICA.pdf" class="btn btn-secondary" target="_blank"><i class="fa-solid fa-file-arrow-down"></i> Descargar Programa</a>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="section">
-            <div class="container">
-                <h2>Después de este curso, serás capaz de:</h2>
-                <div class="grid">
-                    <div class="card">
-                        <div class="icon"><i class="fa-solid fa-crosshairs"></i></div>
-                        <h4>Liderar la Respuesta</h4>
-                        <p>Tomar el control en los primeros 3 minutos críticos de una emergencia, donde cada acción cuenta.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon"><i class="fa-solid fa-shield-heart"></i></div>
-                        <h4>Aplicar Técnicas de Alto Impacto</h4>
-                        <p>Dominar el control de hemorragias y el manejo de la vía aérea, marcando la diferencia entre la vida y la muerte.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon"><i class="fa-solid fa-brain"></i></div>
-                        <h4>Operar Bajo Presión</h4>
-                        <p>Actuar con confianza y claridad mental bajo el estrés extremo de un entorno urbano hostil.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="section">
             <div class="container">
                 <h2>Conoce a tu Instructor Principal</h2>
@@ -376,6 +447,10 @@
                             <h4>Marcelo Alejandro Patri</h4>
                             <div class="title">TEM / PARAMÉDICO</div>
                             <p>Profesional con vasta experiencia en el campo de las emergencias prehospitalarias y la medicina táctica, dedicado a formar la próxima generación de operadores de élite.</p>
+                            <div class="social-links">
+                                <a href="https://www.instagram.com/InstructorMap" target="_blank" aria-label="Instagram del Instructor"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.youtube.com/@InstructorMap" target="_blank" aria-label="YouTube del Instructor"><i class="fab fa-youtube"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -402,29 +477,104 @@
         
         <section class="section">
             <div class="container">
+                <h2>La Voz de la Experiencia: Quienes ya se Entrenaron con Nosotros</h2>
+                <div class="grid">
+                    <div class="testimonial-card">
+                        <p>"Ningún curso me preparó para la realidad como este. Marcelo no enseña teoría, enseña supervivencia. Los simulacros son tan intensos que aprendés a aplicar protocolos bajo estrés real."</p>
+                        <div class="author-info">
+                            <img src="https://placehold.co/100x100/2c2c2c/ffffff?text=JA" alt="Foto de Javier Aguirre">
+                            <div class="author">Oficial Javier Aguirre<span>Grupo de Intervención Especial</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Como bombero, creía saber de caos, pero la medicina táctica es otro nivel. Ahora, en incidentes con múltiples heridos, mi enfoque es más estratégico y efectivo. ¡Recomiendo al 100%!"</p>
+                        <div class="author-info">
+                            <img src="https://placehold.co/100x100/2c2c2c/ffffff?text=DB" alt="Foto de Diego Bustamante">
+                            <div class="author">Sargento Diego Bustamante<span>Bomberos de Rosario</span></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Tomé el curso para entender el trauma en seguridad. Patri traduce balística y trauma penetrante en acciones claras. Superó mis expectativas."</p>
+                        <div class="author-info">
+                            <img src="https://placehold.co/100x100/2c2c2c/ffffff?text=CB" alt="Foto de Carla Benítez">
+                            <div class="author">Lic. Carla Benítez<span>Enfermera de Urgencias</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>Tu Certificación: El Sello de un Profesional de Élite</h2>
+                <p>Al finalizar, recibirás una certificación tangible que valida tus habilidades, reconocida por instituciones de prestigio.</p>
+                <div class="grid" style="align-items: center;">
+                    <div class="certification-item">
+                        <img src="diploma.jpeg" alt="Modelo de diploma del curso">
+                    </div>
+                    <div class="certification-item">
+                        <img src="carnetmed.jpeg" alt="Modelo de carnet del curso">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
                 <h2>Tu Momento es Ahora.</h2>
                 <p>Invierte en habilidades que realmente marcan la diferencia. Los cupos son limitados para garantizar la calidad de la formación.</p>
                 <div class="bonus-box">
                     <p><i class="fa-solid fa-star"></i> BONUS DE ACCIÓN RÁPIDA</p>
-                    <p>¡Los primeros 20 inscriptos recibirán acceso exclusivo a un seminario online sobre Balística de Heridas!</p>
+                    <p>¡Los primeros 20 inscriptos obtienen acceso exclusivo a un descuento para el Teatro de Operaciones en Dolores, Febrero 2026!</p>
                 </div>
                 <div class="pricing-box">
-                    <p><strong>Inscripción:</strong> $20.000 ARS</p>
-                    <p><strong>Plan de Pagos:</strong> 6 cuotas de $35.000 ARS</p>
-                    <div class="discount">
-                        🔥 OFERTA DE LANZAMIENTO 🔥<br>
-                        Abona el curso completo en un solo pago y obtén un <strong>20% de descuento</strong>.
-                        <br><small>(Válido hasta el 30 de Agosto)</small>
-                    </div>
-                    <div class="payment-methods">
-                        <p>Aceptamos:</p>
-                        <i class="fa-brands fa-cc-visa" title="Visa"></i>
-                        <i class="fa-brands fa-cc-mastercard" title="MasterCard"></i>
-                        <i class="fa-brands fa-cc-amex" title="American Express"></i>
-                        <img src="https://img.icons8.com/color/48/000000/mercado-pago.png" alt="Mercado Pago" style="height: 40px; vertical-align: middle; filter: invert(1);">
-                    </div>
+                    <p><strong>🔥 OFERTA PAGO ÚNICO (20% OFF) 🔥</strong></p>
+                    <p class="original-price">$230.000 ARS</p>
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.5em; color: var(--bonus-color); margin: 10px 0;">$184.000 ARS</h3>
+                    <p><small>(Válido hasta el 30 de Agosto)</small></p>
+                    <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" class="btn btn-bonus pulsing-btn">¡QUIERO EL DESCUENTO!</a>
+                    <hr style="border-color: #555; margin: 30px 0;">
+                    <p><strong>¿Necesitas un Plan a tu Medida?</strong></p>
+                    <a href="https://wa.link/cfa2ah" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Diseña tu Plan de Pago</a>
                 </div>
-                <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" class="btn btn-main pulsing-btn">Reservar mi Lugar Ahora</a>
+                <div class="payment-methods">
+                    <p>Aceptamos:</p>
+                    <i class="fa-brands fa-cc-visa" title="Visa"></i>
+                    <i class="fa-brands fa-cc-mastercard" title="MasterCard"></i>
+                    <i class="fa-brands fa-cc-amex" title="American Express"></i>
+                    <img src="https://img.icons8.com/color/48/000000/mercado-pago.png" alt="Mercado Pago">
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>¿Tienes Preguntas?</h2>
+                <p>Completa el formulario y un asesor se pondrá en contacto contigo a la brevedad.</p>
+                <form action="https://formspree.io/f/hxldlvlag" method="POST" class="contact-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Nombre y Apellido</label>
+                            <input type="text" id="name" name="nombre_completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="telefono" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Tu Consulta</label>
+                            <textarea id="message" name="consulta" placeholder="Escribe tu pregunta aquí..."></textarea>
+                        </div>
+                        <input type="hidden" name="curso_elegido" value="Operador de Medicina Táctica">
+                        <div class="form-group full-width">
+                            <button type="submit" class="btn btn-main" style="width: 100%;">Enviar Consulta</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </section>
 
@@ -443,6 +593,10 @@
             <div class="footer-context">
                 <p><strong>Certificación avalada por la principal asociación de profesionales de la salud del país, garantizando los más altos estándares académicos.</strong></p>
                 <p><strong>Más de 35 años de trayectoria y excelencia educativa respaldan la calidad y seriedad de tu formación.</strong></p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/InstructorMap" target="_blank" aria-label="Instagram del Instructor"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@InstructorMap" target="_blank" aria-label="YouTube del Instructor"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
             <p>&copy; 2025 Instituto Colbert & Asociación Argentina para la Salud. Todos los derechos reservados.</p>
         </div>
@@ -471,7 +625,7 @@
                 }
             });
         }, { threshold: 0.1 });
-        document.querySelectorAll('.card, .timeline-container').forEach(el => observer.observe(el));
+        document.querySelectorAll('.card').forEach(el => observer.observe(el));
 
         // --- Lógica de la Cuenta Regresiva ---
         const countDownDate = new Date("Sep 2, 2025 19:00:00").getTime();
