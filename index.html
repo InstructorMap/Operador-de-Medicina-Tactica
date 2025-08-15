@@ -37,6 +37,11 @@
             70% { box-shadow: 0 0 0 20px rgba(255, 193, 7, 0); }
             100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
         }
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px var(--bonus-color); }
+            50% { box-shadow: 0 0 20px var(--bonus-color), 0 0 30px var(--bonus-color); }
+            100% { box-shadow: 0 0 5px var(--bonus-color); }
+        }
 
         body {
             margin: 0;
@@ -83,34 +88,16 @@
             font-size: 0.9em;
         }
 
-        /* --- SECCIÓN HÉROE CON 3D PARALLAX --- */
+        /* --- SECCIÓN HÉROE --- */
         .hero {
-            position: relative;
-            height: 100vh;
-            color: var(--heading-color);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border-bottom: 5px solid var(--accent-color);
-        }
-        .hero-bg, .hero-mid, .hero-front {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), url('portada.jpeg');
             background-size: cover;
             background-position: center;
-        }
-        .hero-bg {
-            background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), url('portada.jpeg');
-        }
-        .hero-content {
-            z-index: 2;
-            padding: 20px;
+            background-attachment: fixed;
+            color: var(--heading-color);
+            text-align: center;
+            padding: 120px 20px;
+            border-bottom: 5px solid var(--accent-color);
         }
         .hero h1 {
             font-family: 'Oswald', sans-serif;
@@ -192,7 +179,7 @@
             font-size: 1.1em;
         }
         
-        /* --- TARJETAS 3D --- */
+        /* --- TARJETAS --- */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -205,9 +192,9 @@
             padding: 30px;
             border-radius: 8px;
             border-top: 4px solid var(--accent-color);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             opacity: 0;
-            transform-style: preserve-3d;
+            transform: translateY(30px);
         }
         .card.visible { animation: fadeIn 0.8s forwards; }
         .card .icon { font-size: 3em; color: var(--accent-color); margin-bottom: 15px; }
@@ -299,11 +286,7 @@
             max-width: 700px;
             margin: 40px auto;
             font-weight: 700;
-        }
-        #bonus-counter {
-            font-size: 1.5em;
-            display: block;
-            margin-top: 10px;
+            animation: glow 3s infinite;
         }
 
         /* --- MÉTODOS DE PAGO --- */
@@ -428,8 +411,8 @@
     <header class="sticky-header" id="sticky-header">
         <a href="#" class="header-logo">OP. TÁCTICO</a>
         <div class="header-actions">
-            <a href="https://wa.link/cfa2ah" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Asesor</a>
-            <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" class="btn btn-main">Inscribirse</a>
+            <a href="https://wa.link/cfa2ah" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Asesor</a>
+            <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" target="_blank" class="btn btn-main">Inscribirse</a>
         </div>
     </header>
 
@@ -440,44 +423,20 @@
         <i class="fa-solid fa-arrow-up"></i>
     </a>
 
-    <header class="hero" id="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <h1>CUANDO OTROS DUDAN, TÚ ACTÚAS</h1>
-            <h3>Formación de Élite en Medicina Táctica</h3>
-            <p>6 Meses de Entrenamiento Intensivo | Doble Certificación | Aval Nacional</p>
+    <header class="hero">
+        <div class="container">
+            <h1>Operador de Medicina Táctica</h1>
+            <h3>Conviértete en el Eslabón Crucial que Salva Vidas en Situaciones Críticas</h3>
+            <p>Formación Intensiva de 6 Meses | Doble Titulación | Aval Nacional</p>
             <div id="countdown"></div>
             <div>
-                <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" class="btn btn-main"><i class="fa-solid fa-rocket"></i> ¡Inscríbete Ahora!</a>
+                <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" target="_blank" class="btn btn-main"><i class="fa-solid fa-rocket"></i> ¡Inscríbete Ahora!</a>
                 <a href="2025 OPERADOR DE MEDICINA TACTICA.pdf" class="btn btn-secondary" target="_blank"><i class="fa-solid fa-file-arrow-down"></i> Descargar Programa</a>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="section">
-            <div class="container">
-                <h2>De la Incertidumbre a la Certeza</h2>
-                <div class="grid">
-                    <div class="card">
-                        <div class="icon"><i class="fa-solid fa-crosshairs"></i></div>
-                        <h4>Lidera la Respuesta</h4>
-                        <p>Deja de preguntarte qué hacer. Lidera la respuesta con un protocolo claro en los 3 minutos que definen todo.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon"><i class="fa-solid fa-shield-heart"></i></div>
-                        <h4>Del Caos al Control</h4>
-                        <p>Domina las técnicas que realmente detienen la muerte. Controla hemorragias y vías aéreas cuando no hay margen para el error.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon"><i class="fa-solid fa-brain"></i></div>
-                        <h4>De la Duda a la Confianza</h4>
-                        <p>Transforma el estrés en tu aliado. Opera con la calma y la precisión que solo el entrenamiento de élite puede darte.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section class="section">
             <div class="container">
                 <h2>Conoce a tu Instructor Principal</h2>
@@ -498,6 +457,24 @@
             </div>
         </section>
 
+        <section class="section section-bg-1">
+            <div class="container">
+                <h2>El Desafío Final: Tu Práctica en un Teatro de Operaciones Real</h2>
+                <p>La teoría te da las herramientas, pero la práctica forja al operador. Nuestra jornada intensiva te sumergirá en simulacros de alta fidelidad con actores, efectos y múltiples víctimas para poner a prueba tus habilidades bajo el estrés más realista posible.</p>
+                <div class="video-container">
+                    <video controls poster="medtac3.jpeg">
+                        <source src="videomedtac.mp4" type="video/mp4">
+                        Tu navegador no soporta el video.
+                    </video>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="medtac3.jpeg" alt="Escena de práctica intensiva 1"></div>
+                    <div class="gallery-item"><img src="medtac4.jpeg" alt="Escena de práctica intensiva 2"></div>
+                    <div class="gallery-item"><img src="medtac5.jpeg" alt="Escena de práctica intensiva 3"></div>
+                </div>
+            </div>
+        </section>
+        
         <section class="section">
             <div class="container">
                 <h2>La Voz de la Experiencia: Quienes ya se Entrenaron con Nosotros</h2>
@@ -548,19 +525,56 @@
                 <p>Invierte en habilidades que realmente marcan la diferencia. Los cupos son limitados para garantizar la calidad de la formación.</p>
                 <div class="bonus-box">
                     <p><i class="fa-solid fa-star"></i> BONUS DE ACCIÓN RÁPIDA</p>
-                    <p>Acceso exclusivo a un descuento para el Teatro de Operaciones (Dolores, Febrero 2026)</p>
-                    <div id="bonus-counter">¡SÓLO QUEDAN 14 CUPOS DISPONIBLES!</div>
+                    <p>¡Los primeros 20 inscriptos obtienen acceso exclusivo a un descuento para el Teatro de Operaciones en Dolores, Febrero 2026!</p>
                 </div>
                 <div class="pricing-box">
                     <p><strong>🔥 OFERTA PAGO ÚNICO (20% OFF) 🔥</strong></p>
                     <p class="original-price">$230.000 ARS</p>
                     <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.5em; color: var(--bonus-color); margin: 10px 0;">$184.000 ARS</h3>
                     <p><small>(Válido hasta el 30 de Agosto)</small></p>
-                    <a href="https://chat.whatsapp.com/EYP558AHi21AUrkUTJD2NG?mode=ac_t" class="btn btn-bonus pulsing-btn">¡QUIERO EL DESCUENTO!</a>
+                    <a href="https://wa.link/cfa2ah" target="_blank" class="btn btn-bonus pulsing-btn">¡QUIERO EL DESCUENTO!</a>
                     <hr style="border-color: #555; margin: 30px 0;">
                     <p><strong>¿Necesitas un Plan a tu Medida?</strong></p>
-                    <a href="https://wa.link/cfa2ah" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Diseña tu Plan de Pago</a>
+                    <a href="https://wa.link/cfa2ah" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Diseña tu Plan de Pago</a>
                 </div>
+                <div class="payment-methods">
+                    <p>Aceptamos:</p>
+                    <i class="fa-brands fa-cc-visa" title="Visa"></i>
+                    <i class="fa-brands fa-cc-mastercard" title="MasterCard"></i>
+                    <i class="fa-brands fa-cc-amex" title="American Express"></i>
+                    <img src="https://img.icons8.com/color/48/000000/mercado-pago.png" alt="Mercado Pago">
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>¿Tienes Preguntas?</h2>
+                <p>Completa el formulario y un asesor se pondrá en contacto contigo a la brevedad.</p>
+                <form action="https://formspree.io/f/hxldlvlag" method="POST" class="contact-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Nombre y Apellido</label>
+                            <input type="text" id="name" name="nombre_completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="telefono" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="message">Tu Consulta</label>
+                            <textarea id="message" name="consulta" placeholder="Escribe tu pregunta aquí..."></textarea>
+                        </div>
+                        <input type="hidden" name="curso_elegido" value="Operador de Medicina Táctica">
+                        <div class="form-group full-width">
+                            <button type="submit" class="btn btn-main" style="width: 100%;">Enviar Consulta</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </section>
 
@@ -589,34 +603,6 @@
     </footer>
 
     <script>
-        // --- 3D Parallax Hero ---
-        const hero = document.getElementById('hero');
-        hero.addEventListener('mousemove', (e) => {
-            const { width, height } = hero.getBoundingClientRect();
-            const x = e.clientX - width / 2;
-            const y = e.clientY - height / 2;
-            const rotateX = -(y / height) * 10;
-            const rotateY = (x / width) * 10;
-            
-            hero.querySelector('.hero-bg').style.transform = `translateX(${x / 50}px) translateY(${y / 50}px)`;
-            hero.querySelector('.hero-content').style.transform = `translateX(${x / 25}px) translateY(${y / 25}px)`;
-        });
-
-        // --- 3D Tilt Cards ---
-        document.querySelectorAll('.card, .instructor-card, .testimonial-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const { left, top, width, height } = card.getBoundingClientRect();
-                const x = e.clientX - left - width / 2;
-                const y = e.clientY - top - height / 2;
-                const rotateX = -(y / height) * 15;
-                const rotateY = (x / width) * 15;
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-            });
-        });
-
         // --- Sticky Header & Back to Top ---
         const stickyHeader = document.getElementById('sticky-header');
         const backToTopBtn = document.getElementById('back-to-top');
@@ -639,7 +625,7 @@
                 }
             });
         }, { threshold: 0.1 });
-        document.querySelectorAll('.card, .timeline-container').forEach(el => observer.observe(el));
+        document.querySelectorAll('.card').forEach(el => observer.observe(el));
 
         // --- Lógica de la Cuenta Regresiva ---
         const countDownDate = new Date("Sep 2, 2025 19:00:00").getTime();
@@ -658,21 +644,6 @@
                 document.getElementById("countdown").innerHTML = "¡EL CURSO HA COMENZADO!";
             }
         }, 1000);
-
-        // --- Contador de Bonus Dinámico ---
-        let bonusSpots = 14;
-        const bonusCounter = document.getElementById('bonus-counter');
-        const updateBonusCounter = () => {
-            bonusSpots--;
-            bonusCounter.innerHTML = `¡SÓLO QUEDAN ${bonusSpots} CUPOS DISPONIBLES!`;
-            if (bonusSpots <= 10) {
-                bonusCounter.style.color = '#ff4d4d'; // Cambia a rojo cuando quedan pocos
-            }
-            if (bonusSpots <= 5) {
-                clearInterval(bonusInterval);
-            }
-        };
-        const bonusInterval = setInterval(updateBonusCounter, 15000); // Reduce un cupo cada 15 segundos
     </script>
 </body>
 </html>
