@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- =================================================================== -->
+    <!-- CONFIGURACIÓN INICIAL Y SEO (Personalizar para cada curso) -->
+    <!-- =================================================================== -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- CAMBIAR: Título, descripción y palabras clave para cada curso -->
     <title>Curso Operador de Medicina Táctica Argentina | Formación TECC</title>
     <meta name="description" content="Conviértete en Operador de Medicina Táctica. Curso intensivo de 6 meses con doble titulación y aval nacional. Aprende TECC con práctica presencial. ¡Inscríbete ya!">
     <meta name="keywords" content="curso medicina táctica, operador de medicina táctica, TECC, primer respondiente, control de hemorragias, Argentina, Buenos Aires, curso colbert">
 
+    <!-- Fuentes de Google y Font Awesome (No es necesario cambiar) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- =================================================================== -->
+    <!-- ESTILOS CSS (Estructura base, no es necesario cambiar) -->
+    <!-- =================================================================== -->
     <style>
         :root {
             --primary-color: #1a1a1a;
@@ -288,6 +295,11 @@
             font-weight: 700;
             animation: glow 3s infinite;
         }
+        #bonus-counter {
+            font-size: 1.5em;
+            display: block;
+            margin-top: 10px;
+        }
 
         /* --- MÉTODOS DE PAGO --- */
         .pricing-box {
@@ -526,6 +538,7 @@
                 <div class="bonus-box">
                     <p><i class="fa-solid fa-star"></i> BONUS DE ACCIÓN RÁPIDA</p>
                     <p>¡Los primeros 20 inscriptos obtienen acceso exclusivo a un descuento para el Teatro de Operaciones en Dolores, Febrero 2026!</p>
+                    <div id="bonus-counter"></div>
                 </div>
                 <div class="pricing-box">
                     <p><strong>🔥 OFERTA PAGO ÚNICO (20% OFF) 🔥</strong></p>
@@ -644,6 +657,26 @@
                 document.getElementById("countdown").innerHTML = "¡EL CURSO HA COMENZADO!";
             }
         }, 1000);
+
+        // --- Contador de Bonus Dinámico ---
+        let bonusSpots = 20; // Inicia en 20
+        const bonusCounter = document.getElementById('bonus-counter');
+        if (bonusCounter) {
+            bonusCounter.innerHTML = `¡SÓLO QUEDAN ${bonusSpots} CUPOS DISPONIBLES!`;
+            const updateBonusCounter = () => {
+                if (bonusSpots > 5) {
+                    bonusSpots--;
+                    bonusCounter.innerHTML = `¡SÓLO QUEDAN ${bonusSpots} CUPOS DISPONIBLES!`;
+                    if (bonusSpots <= 10) {
+                        bonusCounter.style.color = '#ff4d4d';
+                    }
+                } else {
+                    bonusCounter.innerHTML = `¡ÚLTIMOS ${bonusSpots} CUPOS!`;
+                    clearInterval(bonusInterval);
+                }
+            };
+            const bonusInterval = setInterval(updateBonusCounter, 25000); // Reduce un cupo cada 25 segundos
+        }
     </script>
 </body>
 </html>
